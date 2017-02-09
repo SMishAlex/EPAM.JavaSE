@@ -16,39 +16,53 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IntSet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/courses/javase/msid/unit1/IntSet.java">
+      <file leaf-file-name="IntArrayList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/courses/javase/msid/unit1/IntArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+            <state relative-caret-position="638">
+              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
               <folding>
-                <element signature="method#IntSet#1;class#IntSet#0" expanded="false" />
-                <element signature="method#add#0;class#IntSet#0" expanded="false" />
-                <element signature="method#addNegativ#0;class#IntSet#0" expanded="false" />
-                <element signature="method#addPositiv#0;class#IntSet#0" expanded="false" />
-                <element signature="method#remove#0;class#IntSet#0" expanded="false" />
-                <element signature="method#contains#0;class#IntSet#0" expanded="false" />
-                <element signature="method#union#0;class#IntSet#0" expanded="false" />
-                <element signature="method#intersection#0;class#IntSet#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#191#220#0" expanded="false" />
+                <element signature="method#IntArrayList#0;class#IntArrayList#0" expanded="false" />
+                <element signature="method#IntArrayList#1;class#IntArrayList#0" expanded="false" />
+                <element signature="method#add#0;class#IntArrayList#0" expanded="false" />
+                <element signature="method#get#0;class#IntArrayList#0" expanded="false" />
+                <element signature="method#maxValueInefficient#0;class#IntArrayList#0" expanded="false" />
+                <element signature="method#maxValueRec#0;class#IntArrayList#0" expanded="false" />
+                <element signature="e#1446#1447#0" expanded="true" />
+                <element signature="e#1511#1512#0" expanded="true" />
+                <element signature="e#1737#1738#0" expanded="true" />
+                <element signature="e#1794#1795#0" expanded="true" />
+                <element signature="method#merger#0;class#IntArrayList#0" expanded="false" />
+                <element signature="method#ensureCapasity#0;class#IntArrayList#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IntSetTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/epam/courses/javase/msid/unit1/IntSetTest.java">
+      <file leaf-file-name="Set64.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/courses/javase/msid/unit1/Set64.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+            <state relative-caret-position="308">
+              <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
               <folding>
-                <element signature="method#add#0;class#IntSetTest#0" expanded="false" />
-                <element signature="method#add2#0;class#IntSetTest#0" expanded="false" />
-                <element signature="method#remove#0;class#IntSetTest#0" expanded="false" />
-                <element signature="method#union#0;class#IntSetTest#0" expanded="false" />
-                <element signature="method#intersection#0;class#IntSetTest#0" expanded="false" />
-                <element signature="method#difference#0;class#IntSetTest#0" expanded="false" />
-                <element signature="method#isSubsetOf#0;class#IntSetTest#0" expanded="false" />
+                <element signature="e#111#112#0" expanded="true" />
+                <element signature="e#136#137#0" expanded="true" />
+                <element signature="method#add#0;class#Set64#0" expanded="false" />
+                <element signature="method#remove#0;class#Set64#0" expanded="false" />
+                <element signature="method#contains#0;class#Set64#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Set64Test.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/epam/courses/javase/msid/unit1/Set64Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1228">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,6 +87,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/epam/courses/javase/msid/unit1/IntSet.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/epam/courses/javase/msid/unit1/IntSetTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/courses/javase/msid/unit1/IntArrayList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/courses/javase/msid/unit1/Set64.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/epam/courses/javase/msid/unit1/Set64Test.java" />
       </list>
     </option>
   </component>
@@ -168,7 +185,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.IntSetTest">
+  <component name="RunManager" selected="JUnit.Set64Test">
     <configuration default="false" name="IntSetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -181,6 +198,84 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.epam.courses.javase.msid.unit1" />
       <option name="MAIN_CLASS_NAME" value="com.epam.courses.javase.msid.unit1.IntSetTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="Set64Test.union" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.epam.courses.javase.msid.unit1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="homework" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.epam.courses.javase.msid.unit1" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.courses.javase.msid.unit1.Set64Test" />
+      <option name="METHOD_NAME" value="union" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="Set64Test.intersect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.epam.courses.javase.msid.unit1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="homework" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.epam.courses.javase.msid.unit1" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.courses.javase.msid.unit1.Set64Test" />
+      <option name="METHOD_NAME" value="intersect" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="Set64Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.epam.courses.javase.msid.unit1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="homework" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.epam.courses.javase.msid.unit1" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.courses.javase.msid.unit1.Set64Test" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -399,12 +494,18 @@
       <listeners />
       <method />
     </configuration>
-    <list size="1">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="JUnit.IntSetTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.Set64Test.union" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.Set64Test.intersect" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.Set64Test" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.IntSetTest" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Set64Test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Set64Test.intersect" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.Set64Test.union" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.IntSetTest" />
       </list>
     </recent_temporary>
   </component>
@@ -424,6 +525,21 @@
   <component name="TestHistory">
     <history-entry file="IntSetTest - 2017.02.09 at 16h 26m 40s.xml">
       <configuration name="IntSetTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Set64Test - 2017.02.09 at 17h 50m 01s.xml">
+      <configuration name="Set64Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Set64Test_intersect - 2017.02.09 at 17h 49m 40s.xml">
+      <configuration name="Set64Test.intersect" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Set64Test_intersect - 2017.02.09 at 17h 49m 46s.xml">
+      <configuration name="Set64Test.intersect" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Set64Test_union - 2017.02.09 at 17h 48m 16s.xml">
+      <configuration name="Set64Test.union" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Set64Test_union - 2017.02.09 at 17h 48m 46s.xml">
+      <configuration name="Set64Test.union" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -473,7 +589,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -481,6 +599,22 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/epam/courses/javase/msid/unit1/IntSetTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="method#add#0;class#IntSetTest#0" expanded="false" />
+            <element signature="method#add2#0;class#IntSetTest#0" expanded="false" />
+            <element signature="method#remove#0;class#IntSetTest#0" expanded="false" />
+            <element signature="method#union#0;class#IntSetTest#0" expanded="false" />
+            <element signature="method#intersection#0;class#IntSetTest#0" expanded="false" />
+            <element signature="method#difference#0;class#IntSetTest#0" expanded="false" />
+            <element signature="method#isSubsetOf#0;class#IntSetTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/courses/javase/msid/unit1/IntSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -498,19 +632,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/epam/courses/javase/msid/unit1/IntSetTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/courses/javase/msid/unit1/IntArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        <state relative-caret-position="638">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding>
-            <element signature="method#add#0;class#IntSetTest#0" expanded="false" />
-            <element signature="method#add2#0;class#IntSetTest#0" expanded="false" />
-            <element signature="method#remove#0;class#IntSetTest#0" expanded="false" />
-            <element signature="method#union#0;class#IntSetTest#0" expanded="false" />
-            <element signature="method#intersection#0;class#IntSetTest#0" expanded="false" />
-            <element signature="method#difference#0;class#IntSetTest#0" expanded="false" />
-            <element signature="method#isSubsetOf#0;class#IntSetTest#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#191#220#0" expanded="false" />
+            <element signature="method#IntArrayList#0;class#IntArrayList#0" expanded="false" />
+            <element signature="method#IntArrayList#1;class#IntArrayList#0" expanded="false" />
+            <element signature="method#add#0;class#IntArrayList#0" expanded="false" />
+            <element signature="method#get#0;class#IntArrayList#0" expanded="false" />
+            <element signature="method#maxValueInefficient#0;class#IntArrayList#0" expanded="false" />
+            <element signature="method#maxValueRec#0;class#IntArrayList#0" expanded="false" />
+            <element signature="e#1446#1447#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1737#1738#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="method#merger#0;class#IntArrayList#0" expanded="false" />
+            <element signature="method#ensureCapasity#0;class#IntArrayList#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/courses/javase/msid/unit1/Set64.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding>
+            <element signature="e#111#112#0" expanded="true" />
+            <element signature="e#136#137#0" expanded="true" />
+            <element signature="method#add#0;class#Set64#0" expanded="false" />
+            <element signature="method#remove#0;class#Set64#0" expanded="false" />
+            <element signature="method#contains#0;class#Set64#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/epam/courses/javase/msid/unit1/Set64Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1228">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
