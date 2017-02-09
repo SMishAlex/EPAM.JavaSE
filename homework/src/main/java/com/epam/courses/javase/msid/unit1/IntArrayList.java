@@ -9,7 +9,7 @@ public class IntArrayList {
 
     //region writen on the lesson
 
-    public IntArrayList(int[] data) {
+    public IntArrayList(int... data) {
         this.data = Arrays.copyOf(data, data.length);
         size = data.length;
     }
@@ -74,9 +74,24 @@ public class IntArrayList {
      * @return index of the value or -indexToInsert - 1
      */
     public int binarySearch(int value) {
-        throw new UnsupportedOperationException();
+        return bs(value,0,this.size);
     }
 
+    public int bs(int value, int startInclusive, int endExclusive){
+        int length=endExclusive - startInclusive;
+        if (length<1){
+            return -startInclusive -1;
+        }
+        int mid = startInclusive+(length)/2;
+        if (value==data[mid]){
+            return mid;
+        }
+        return value>data[mid]?
+                bs(value,mid+1, endExclusive):
+                bs(value,startInclusive,mid);
+    }
+
+    //region writen on the lesson too
     private static void mergeSort(int[] data, int startInclusive, int endExclusive, int[] free) {
         final int length = endExclusive - startInclusive;
         if (length <= 1) {
@@ -116,5 +131,5 @@ public class IntArrayList {
         return data.length;
     }
 
-
+    //endregion
 }
