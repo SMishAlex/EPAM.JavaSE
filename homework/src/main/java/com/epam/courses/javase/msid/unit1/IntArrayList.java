@@ -65,6 +65,10 @@ public class IntArrayList {
         mergeSort(data, 0, getSize(), new int[getSize()]);
     }
 
+    public void upSort(){
+        uperMergeSort(data, new int[getSize()]);
+    }
+
     //endregion
 
     /**
@@ -77,7 +81,7 @@ public class IntArrayList {
         return bs(value,0,this.size);
     }
 
-    public int bs(int value, int startInclusive, int endExclusive){
+    private int bs(int value, int startInclusive, int endExclusive){
         int length=endExclusive - startInclusive;
         if (length<1){
             return -startInclusive -1;
@@ -89,6 +93,17 @@ public class IntArrayList {
         return value>data[mid]?
                 bs(value,mid+1, endExclusive):
                 bs(value,startInclusive,mid);
+    }
+
+    private void uperMergeSort(int[] data, int[] free){
+        int curSize;
+        for(curSize=1;curSize<data.length;curSize<<=1){
+            for(int start=0;start<data.length;start+=curSize*2){
+                int endExclusiv = Math.min(start+curSize*2,data.length);
+                int mid = start+curSize;
+                merger(data,start,mid,endExclusiv,free);
+            }
+        }
     }
 
     //region writen on the lesson too
