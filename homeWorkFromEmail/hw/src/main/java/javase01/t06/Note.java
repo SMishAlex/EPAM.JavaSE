@@ -17,4 +17,8 @@ public class Note {
     public void edit(String newData){
         data=newData;
     }
+
+    public void show(){
+        System.out.println(data);
+    }
 }
