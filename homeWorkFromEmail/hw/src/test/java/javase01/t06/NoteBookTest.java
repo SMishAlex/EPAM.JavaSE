@@ -49,8 +49,8 @@ public class NoteBookTest {
     @Test
     public void showAllNotes() throws Exception {
         NoteBook noteBook = new NoteBook();
-        noteBook.add(new Note("some text 1"));
         noteBook.add(new Note("some text 2"));
+        noteBook.add(new Note("some text 1"));
         noteBook.add(new Note("some text 3"));
         noteBook.showAllNotes();
     }
