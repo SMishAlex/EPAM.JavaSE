@@ -46,5 +46,7 @@ public class Pen {
 
 
     public void writeWithColor(String s) {
+        String pained = "Imagine it's written with " + color + " color " + s;
+        write(pained);
     }
 }
