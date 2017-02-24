@@ -57,4 +57,9 @@ public class Pen {
                 "color=" + color +
                 '}';
     }
+
+    @Override
+    public int hashCode() {
+        return color.hashCode();
+    }
 }
