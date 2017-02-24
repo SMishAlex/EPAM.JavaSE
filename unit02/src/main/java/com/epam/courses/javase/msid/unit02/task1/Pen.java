@@ -45,4 +45,6 @@ public class Pen {
     }
 
 
+    public void writeWithColor(String s) {
+    }
 }
