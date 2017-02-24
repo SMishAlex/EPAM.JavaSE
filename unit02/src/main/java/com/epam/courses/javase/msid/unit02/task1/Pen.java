@@ -49,4 +49,12 @@ public class Pen {
         String pained = "Imagine it's written with " + color + " color " + s;
         write(pained);
     }
+
+
+    @Override
+    public String toString() {
+        return "Pen{" +
+                "color=" + color +
+                '}';
+    }
 }
