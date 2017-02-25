@@ -14,11 +14,17 @@ public class StationeryTest {
     public void testCostSum() {
         String name = "Some Name";
         Employer employer = new Employer(name);
-        LocalDate boughtDate = LocalDate.now();
-        employer.addStationery(new Stationery(200, boughtDate));
+        employer.addStationery(new Stationery(200));
         long cost = employer.getCostOfStationery();
 
         Assert.assertEquals(200, cost);
+    }
+
+    @Test
+    public void testCostOfEmptyStationery(){
+        String name = "Some Name";
+        Employer employer = new Employer(name);
+        Assert.assertEquals(0,employer.getCostOfStationery());
     }
 
     @Test
@@ -42,7 +48,7 @@ public class StationeryTest {
         try {
             employer.addStationery(new Stationery(-20, boughtDate));
         }catch (IllegalArgumentException e){
-            e.printStackTrace();
+            System.err.println(e);
         }
 
         Assert.assertTrue(employer.getStationers().size() == 0);
