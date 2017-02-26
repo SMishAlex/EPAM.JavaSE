@@ -47,11 +47,26 @@ public class ComparatorsTest {
 
     @Test
     public void testCostAndNameSort() {
-        Sets sets = new Sets().setDefoultSets();
+        Stationery[] notSorted = {
+                new Pen(10, Integer.MAX_VALUE),
+                new NoteBook(40, 500),
+                new Sticker(50, 100),
+                new Glue(100, LocalDate.MAX),
+                new Pen(10, Integer.MAX_VALUE),
+                new NoteBook(10, 500),
+                new Sticker(10, 100),
+                new Glue(40, LocalDate.MAX)
+        };
+
+        Sets sets = new Sets().setNewEmployerSet(Arrays.asList(notSorted));
         List<Stationery> newEmployerSet = sets.getNewEmployerSet();
         newEmployerSet.sort(new Comparators.CostAndNameComparator());
         Stationery[] sorted = {
+                new NoteBook(10, 500),
                 new Pen(10, Integer.MAX_VALUE),
+                new Pen(10, Integer.MAX_VALUE),
+                new Sticker(10, 100),
+                new Glue(40, LocalDate.MAX),
                 new NoteBook(40, 500),
                 new Sticker(50, 100),
                 new Glue(100, LocalDate.MAX),
