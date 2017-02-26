@@ -26,4 +26,14 @@ public class ExpendableStationery extends Stationery {
             throw new IllegalArgumentException("not enough value to use!");
         currentValue -=value;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ExpendableStationery){
+            if(((ExpendableStationery) obj).currentValue==currentValue){
+                return super.equals(obj);
+            }
+        }
+        return false;
+    }
 }

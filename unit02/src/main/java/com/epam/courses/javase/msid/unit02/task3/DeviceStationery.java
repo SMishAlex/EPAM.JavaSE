@@ -21,8 +21,17 @@ public class DeviceStationery extends Stationery {
         this.brand = brand;
     }
 
-    public DeviceStationery(long cost){
+    public DeviceStationery(long cost) {
         super(cost);
         brand = "No brand";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof DeviceStationery) {
+            if (((DeviceStationery) obj).brand.equals(brand))
+                return super.equals(obj);
+        }
+        return false;
     }
 }

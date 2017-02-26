@@ -21,6 +21,16 @@ public class ShelfLifeStationery extends Stationery {
         this.expires = expires;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ShelfLifeStationery){
+            if(((ShelfLifeStationery) obj).expires.equals(this.expires)){
+                return super.equals(obj);
+            }
+        }
+        return false;
+    }
+
 
     public LocalDate getExpires() {
         return expires;

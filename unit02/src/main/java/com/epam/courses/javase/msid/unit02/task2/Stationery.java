@@ -28,4 +28,23 @@ public class Stationery {
     public LocalDate getBoughtDate() {
         return boughtDate;
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (super.equals(obj))
+            return true;
+        if (obj instanceof Stationery){
+            if(((Stationery) obj).cost==cost&&
+                    ((Stationery) obj).boughtDate.equals(boughtDate))
+                return true;
+        }
+        return false;
+    }
+
+
 }

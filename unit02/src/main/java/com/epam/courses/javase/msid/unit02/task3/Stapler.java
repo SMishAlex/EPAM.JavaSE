@@ -19,6 +19,12 @@ public class Stapler extends DeviceStationery {
         super(cost);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (super.equals(obj)) return true;
+        else return false;
+    }
+
     public void staple(OfficePaper[] document){
         //document with some pages become stapled
     }
