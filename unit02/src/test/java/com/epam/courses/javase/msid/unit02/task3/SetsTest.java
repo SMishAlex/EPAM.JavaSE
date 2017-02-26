@@ -16,19 +16,21 @@ public class SetsTest {
     @Test
     public void testEmptySet() {
         Sets sets = new Sets();
+
         assertEquals(sets, sets.setNewEmployerSet(new ArrayList<>()));
+        assertEquals(0,sets.getNewEmployerSet().size());
     }
 
     @Test
     public void testDefaultSet() {
         Sets sets = new Sets().setDefoultSets();
-        Stationery[] stationeries = {
+        Stationery[] stationers = {
                 new Glue(100, LocalDate.MAX),
                 new Pen(10, Integer.MAX_VALUE),
                 new NoteBook(40, 500),
                 new Sticker(50, 100)
         };
-        for (Stationery s : stationeries) {
+        for (Stationery s : stationers) {
             assertTrue(sets.getNewEmployerSet().contains(s));
         }
     }
