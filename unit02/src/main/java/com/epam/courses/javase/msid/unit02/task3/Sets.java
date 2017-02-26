@@ -11,14 +11,15 @@ import java.util.List;
  * Created by msid on 26.02.17.
  */
 public class Sets {
-    private static List<Stationery> newEmployerSet;
+    private List<Stationery> newEmployerSet;
 
     public Sets(){
         newEmployerSet = new ArrayList<>();
     }
 
-    public static void setNewEmployerSet(List<Stationery> newEmployerSet) {
-        Sets.newEmployerSet = newEmployerSet;
+    public Sets setNewEmployerSet(List<Stationery> newEmployerSet) {
+        this.newEmployerSet = newEmployerSet;
+        return this;
     }
 
     public List<Stationery> getNewEmployerSet(){
