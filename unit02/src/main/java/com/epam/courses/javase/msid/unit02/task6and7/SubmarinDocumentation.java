@@ -10,11 +10,12 @@ import java.time.LocalDate;
 public @interface SubmarinDocumentation {
     /**
      * Date of creating this model.
+     * <p>
+     * Date format should be DD.MM.YYYY.
      *
-     * Date format should be DD:MM:YYYY.
      * @return
      */
-    String  disignedDate();
+    String disignedDate();
 
     /**
      * Type and medicate information.

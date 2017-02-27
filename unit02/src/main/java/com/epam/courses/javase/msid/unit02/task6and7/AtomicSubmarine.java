@@ -1,10 +1,16 @@
 package com.epam.courses.javase.msid.unit02.task6and7;
 
+import java.time.LocalDate;
+
 /**
  * Created by msid on 27.02.17.
  */
 public class AtomicSubmarine {
 
+    @SubmarinDocumentation(
+            disignedDate = "27.02.2017",
+            typeProject = "1545-M"
+    )
     public AtomicSubmarine(double kpd) {
         KPD = kpd;
     }
@@ -106,7 +112,7 @@ public class AtomicSubmarine {
         }
     }
 
-    public Position getPos(){
+    public Position getPos() {
         return pos;
     }
 
