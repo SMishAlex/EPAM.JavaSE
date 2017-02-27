@@ -1,4 +1,4 @@
-package com.epam.courses.javase.msid.unit02.task6;
+package com.epam.courses.javase.msid.unit02.task6and7;
 
 /**
  * Created by msid on 27.02.17.
@@ -73,7 +73,7 @@ public class AtomicSubmarine {
         pos.Y += speed * Math.sin(angle);
     }
 
-    public void chageAngle(double angle) {
+    public void changeAngle(double angle) {
         this.angle = angle;
     }
 
