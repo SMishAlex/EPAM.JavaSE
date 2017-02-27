@@ -7,9 +7,9 @@ public enum Subjects {
     MATH("Math", "Teacer"),
     PHYSICS("Physic", "Other Teacher");
 
-    Subject<Integer> s;
+    Subject<Integer> MANAGE;
 
     Subjects(String title, String teacher) {
-        s = new Subject<>(title, teacher);
+        MANAGE = new Subject<>(title, teacher);
     }
     }
