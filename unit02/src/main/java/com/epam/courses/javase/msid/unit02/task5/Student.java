@@ -36,4 +36,14 @@ public class Student {
     public void changeName(String name) {
         this.name = name;
     }
+
+    public boolean isStating(Subject subject){
+        return subjects.contains(subject);
+    }
+
+    @Override
+    public String toString(){
+        return name;
+    }
+
 }
