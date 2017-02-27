@@ -9,7 +9,7 @@ public class AtomicSubmarine {
         KPD = kpd;
     }
 
-    public class Motor {
+    private class Motor {
         private long power = 0;
         public final long MAX_POWER = Long.MAX_VALUE;
 
@@ -37,21 +37,26 @@ public class AtomicSubmarine {
 
     private final double KPD;
 
-    Position pos = new Position();
-    Motor motor = new Motor();
-    double angle = 0;
+    private Position pos = new Position();
+    private Motor motor = new Motor();
+    private double angle = 0;
 
-    private class Position {
+    public class Position {
         public long X = 0;
         public long Y = 0;
         public long deep = 0;
+
+        @Override
+        public String toString() {
+            return String.format("Position is [%d, %d, %d]", X, Y, deep);
+        }
     }
 
     public void moveForward(long time) {
         for (long i = time; i > 0; i--) {
             double speed = KPD * motor.getPower();
             move(speed);
-            System.out.println();
+            System.out.println(pos);
         }
     }
 
@@ -59,7 +64,7 @@ public class AtomicSubmarine {
         for (long i = time; i > 0; i--) {
             double speed = -KPD * motor.getPower();
             move(speed);
-            System.out.println();
+            System.out.println(pos);
         }
     }
 
@@ -73,17 +78,23 @@ public class AtomicSubmarine {
     }
 
     public void moveDown(long time, double downAngle) {
-        double speed = -KPD * motor.getPower();
-        double xySpeed = speed * Math.sin(downAngle);
-        move(xySpeed);
-        pos.deep += speed * Math.cos(downAngle);
+        for (long i = time; i > 0; i--) {
+            double speed = KPD * motor.getPower();
+            double xySpeed = speed * Math.cos(downAngle);
+            move(xySpeed);
+            pos.deep += speed * Math.sin(downAngle);
+            System.out.println(pos);
+        }
     }
 
     public void moveUp(long time, double upAngle) {
-        double speed = -KPD * motor.getPower();
-        double xySpeed = speed * Math.cos(upAngle);
-        move(xySpeed);
-        pos.deep += speed * Math.sin(upAngle);
+        for (long i = time; i > 0; i--) {
+            double speed = KPD * motor.getPower();
+            double xySpeed = speed * Math.cos(upAngle);
+            move(xySpeed);
+            pos.deep -= speed * Math.sin(upAngle);
+            System.out.println(pos);
+        }
     }
 
     public void speedUp(long power) {
@@ -93,6 +104,10 @@ public class AtomicSubmarine {
             motor.setPower(0);
             System.out.println(e);
         }
+    }
+
+    public Position getPos(){
+        return pos;
     }
 
     public void speedDown(long power) {

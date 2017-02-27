@@ -38,7 +38,16 @@ public class Subject<T extends Number> {
         return teacher;
     }
 
-    public String getTitle() {
+    public String getTitle
+
+
+
+
+
+
+
+
+() {
         return title;
     }
 
