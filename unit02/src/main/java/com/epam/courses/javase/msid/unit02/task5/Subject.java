@@ -24,6 +24,8 @@ public class Subject<T extends Number> {
     }
 
     public void excludeStudent(Student student) {
+        if (!group.containsKey(student))
+            throw new IllegalArgumentException("there is no such student");
         group.remove(student);
         student.removeSubject(this);
     }
