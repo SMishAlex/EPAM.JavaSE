@@ -4,6 +4,8 @@ package com.epam.courses.javase.msid.unit03.task1;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by msid on 28.02.17.
@@ -32,6 +34,16 @@ public class CrazyLogger {
     }
 
     public String[] findMessages(String message) {
-        return null;
+        List<String> result = new ArrayList<String>();
+        int curPos = 0;
+        while ((data.indexOf(message,curPos)!=-1)&&curPos<data.length()){
+            int start = data.indexOf(message,curPos) - "dd-MM-YYYY : HH-mm - ".length();
+            int end = data.indexOf(";", start);
+            result.add(data.substring(start, end));
+            curPos=end;
+        }
+        String[] res = new String[result.size()];
+        result.toArray(res);
+        return res;
     }
 }

@@ -10,6 +10,7 @@ import java.time.chrono.Chronology;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.FormatStyle;
+import java.util.Arrays;
 import java.util.Locale;
 
 import static org.junit.Assert.*;
@@ -18,8 +19,12 @@ public class CrazyLoggerTest {
     @Test
     public void testLoggerFindMessage() {
         CrazyLogger crazyLogger = new CrazyLogger();
+
+        crazyLogger.log("other");
+
         String message = "some message";
         crazyLogger.log(message);
+
         String found = crazyLogger.findMessage(message);
         System.out.println(found);
         assertFalse(found.isEmpty());
@@ -32,7 +37,7 @@ public class CrazyLoggerTest {
         crazyLogger.log(message);
         crazyLogger.log(message);
         String[] found = crazyLogger.findMessages(message);
-        System.out.println(found);
+        System.out.println(Arrays.deepToString(found));
         assertEquals(2,found.length);
     }
 
