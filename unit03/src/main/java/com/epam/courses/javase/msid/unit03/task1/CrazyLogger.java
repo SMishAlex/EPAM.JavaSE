@@ -9,4 +9,14 @@ import java.time.LocalDate;
  */
 public class CrazyLogger {
 
+    public void log(String message) {
+    }
+
+    public String findMessage(String message) {
+        return "";
+    }
+
+    public String[] findMessages(String message) {
+        return null;
+    }
 }
