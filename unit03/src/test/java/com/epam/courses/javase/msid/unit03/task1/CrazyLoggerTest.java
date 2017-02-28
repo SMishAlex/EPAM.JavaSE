@@ -2,6 +2,16 @@ package com.epam.courses.javase.msid.unit03.task1;
 
 import org.junit.Test;
 
+import java.time.Clock;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.chrono.Chronology;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.FormatStyle;
+import java.util.Locale;
+
 import static org.junit.Assert.*;
 
 public class CrazyLoggerTest {
@@ -26,4 +36,11 @@ public class CrazyLoggerTest {
         assertEquals(2,found.length);
     }
 
+    @Test
+    public void test(){
+        Instant date = Instant.now();
+        DateTimeFormatter formatter =
+                DateTimeFormatter.ofPattern("dd-MM-YYYY : HH-mm").withZone(ZoneId.systemDefault());
+        System.out.println(formatter.format(date));
+    }
 }
