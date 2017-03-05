@@ -36,11 +36,11 @@ public class ByteIOParse {
     }
 
     public void analyseFile(String path) throws IOException {
-        try (FileInputStream inputStream = new FileInputStream(path)) {
-            byte[] bufer = new byte[inputStream.available()];
-            inputStream.read(bufer);
-            Analyse = new String(bufer);
-        }
+        readFileAsOneString(path);
+        searchKeywordsInString();
+    }
+
+    private void searchKeywordsInString() {
         for (String key : keyWords) {
             Pattern currentKeyPattern = Pattern.compile(key);
             Matcher m = currentKeyPattern.matcher(Analyse);
@@ -49,6 +49,14 @@ public class ByteIOParse {
                 keyValue += 1;
             }
             result.put(key, keyValue);
+        }
+    }
+
+    private void readFileAsOneString(String path) throws IOException {
+        try (FileInputStream inputStream = new FileInputStream(path)) {
+            byte[] buffer = new byte[inputStream.available()];
+            inputStream.read(buffer);
+            Analyse = new String(buffer);
         }
     }
 }
