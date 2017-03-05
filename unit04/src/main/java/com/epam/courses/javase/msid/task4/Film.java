@@ -11,7 +11,7 @@ class Film implements Serializable {
     private String name;
     private final long budget;
 
-    public Film(List<Actor> actors, String name, long budget) {
+    public Film(String name, long budget, List<Actor> actors) {
         this.actors = actors;
         this.name = name;
         this.budget = budget;
@@ -20,7 +20,7 @@ class Film implements Serializable {
     }
 
     public Film(String name, long budget, Actor... actors) {
-        this(Arrays.asList(actors), name, budget);
+        this(name, budget, Arrays.asList(actors));
     }
 
     List<Actor> getActors() {
