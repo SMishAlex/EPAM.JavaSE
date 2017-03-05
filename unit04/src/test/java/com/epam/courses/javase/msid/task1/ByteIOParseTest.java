@@ -27,7 +27,7 @@ public class ByteIOParseTest {
     @Test
     public void testFileInput() throws IOException {
         ioParse.analyseFile("src//main//java//com//epam//courses//javase//msid//task1//ByteIOParse.java");
-        assertEquals(3, ioParse.getResult().get("try").intValue());
+        assertEquals(4, ioParse.getResult().get("try").intValue());
     }
 
 
