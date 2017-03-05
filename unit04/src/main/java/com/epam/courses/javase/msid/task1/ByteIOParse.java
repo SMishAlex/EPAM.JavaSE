@@ -9,15 +9,21 @@ public class ByteIOParse {
     private List<String> keyWords;
     private String Analyse;
 
-    public Map<String, Integer> getResult() {
-        return new HashMap<>(result);
-    }
-
     private Map<String, Integer> result;
 
     ByteIOParse() {
         keyWords = new ArrayList<>();
         result = new HashMap<>();
+    }
+
+    public void outputResultToFile(String path) throws IOException {
+        try(FileOutputStream outputStream = new FileOutputStream(path)){
+            outputStream.write(result.toString().getBytes());
+        }
+    }
+
+    public Map<String, Integer> getResult() {
+        return new HashMap<>(result);
     }
 
 

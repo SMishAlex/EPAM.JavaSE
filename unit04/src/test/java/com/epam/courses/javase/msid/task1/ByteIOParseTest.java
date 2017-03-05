@@ -3,12 +3,16 @@ package com.epam.courses.javase.msid.task1;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.IOException;
 
 import static org.junit.Assert.*;
 
 public class ByteIOParseTest {
+    @Test
+    public void outputResultToFile() throws Exception {
+        ioParse.analyseFile("src//main//java//com//epam//courses//javase//msid//task1//ByteIOParse.java");
+        ioParse.outputResultToFile("out.txt");
+    }
 
     private ByteIOParse ioParse;
 
