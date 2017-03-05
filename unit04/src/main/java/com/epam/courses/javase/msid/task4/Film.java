@@ -2,6 +2,7 @@ package com.epam.courses.javase.msid.task4;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,7 +24,7 @@ class Film implements Serializable {
     }
 
     List<Actor> getActors() {
-        return actors;
+        return new ArrayList<>(actors);
     }
 
     public String getName() {
