@@ -18,8 +18,8 @@ class Film implements Serializable {
                 .forEach((x) -> x.addFilms(this));
     }
 
-    public Film(String name, long budget,Actor ... actors){
-        this(Arrays.asList(actors),name,budget);
+    public Film(String name, long budget, Actor... actors) {
+        this(Arrays.asList(actors), name, budget);
     }
 
     List<Actor> getActors() {

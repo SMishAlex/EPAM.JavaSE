@@ -16,7 +16,7 @@ public class Collection implements Serializable {
     public void addFilm(Film film) {
         films.add(film);
         film.getActors().forEach(actor -> {
-            if(!actors.contains(actor)){
+            if (!actors.contains(actor)) {
                 actors.add(actor);
             }
         });
