@@ -15,19 +15,21 @@ public class UniversalResourceTest {
     public void testNoPropertyFileException() throws NoSuchFileException {
         UniversalResource ru = new UniversalResource("1", "ru");
     }
+
     @Before
     public void init() throws NoSuchFileException {
-        resource = new UniversalResource("resource", "ru");
+        resource = new UniversalResource("resources", "ru");
     }
 
     @Test(expected = NoSuchElementException.class)
-    public void testNoSuchKeyException(){
+    public void testNoSuchKeyException() {
         resource.getString("no");
     }
 
     @Test
-    public void testThatAllPropertyHaveBeenRead(){
-        resource.getString("no");
+    public void testThatAllPropertyHaveBeenRead() {
+        assertEquals(3,resource.getData().size());
+
     }
 
 }

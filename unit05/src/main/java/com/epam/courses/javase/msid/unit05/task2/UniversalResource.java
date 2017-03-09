@@ -22,4 +22,8 @@ public class UniversalResource {
     public String getString(String key) {
         return null;
     }
+
+    public Map<String,String> getData() {
+        return new HashMap<>(data);
+    }
 }
