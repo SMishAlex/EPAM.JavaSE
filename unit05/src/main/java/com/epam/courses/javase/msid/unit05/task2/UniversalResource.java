@@ -20,10 +20,14 @@ public class UniversalResource {
     }
 
     public String getString(String key) {
-        return null;
+        String result = data.get(key);
+        if (result == null)
+            throw new NoSuchElementException();
+        return result;
     }
 
-    public Map<String,String> getData() {
+    public Map<String, String> getData() {
         return new HashMap<>(data);
+
     }
 }

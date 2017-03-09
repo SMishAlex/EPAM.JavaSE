@@ -28,7 +28,7 @@ public class UniversalResourceTest {
 
     @Test
     public void testThatAllPropertyHaveBeenRead() {
-        assertEquals(3,resource.getData().size());
+        assertEquals(3, resource.getData().size());
 
     }
 
