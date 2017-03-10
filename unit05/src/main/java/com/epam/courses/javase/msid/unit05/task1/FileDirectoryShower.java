@@ -2,9 +2,7 @@ package com.epam.courses.javase.msid.unit05.task1;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.Predicate;
 
 public class FileDirectoryShower {
@@ -43,5 +41,12 @@ public class FileDirectoryShower {
         for (File directory : getFiles()) {
             System.out.println(directory.getName());
         }
+    }
+
+    public boolean contains(String fileOrDirectoryName){
+        File[] filtered = pathFilter((x) -> x.getName().equals(fileOrDirectoryName));
+        return filtered.length==0?
+                false:
+                true;
     }
 }
