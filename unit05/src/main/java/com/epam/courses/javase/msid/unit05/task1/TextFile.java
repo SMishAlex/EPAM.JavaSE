@@ -34,7 +34,7 @@ public class TextFile {
     }
 
 
-    public long getLinesNumber() {
+    public long getLinesNumber() throws IOException {
         long linesNumber = 0;
         try (LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(data))) {
             while (lineNumberReader.readLine() != null) {
@@ -42,7 +42,7 @@ public class TextFile {
             }
 
         } catch (IOException e) {
-            // TODO: 11.03.17 some exception
+            throw new IOException("file is not available now", e);
         }
         return linesNumber;
     }
@@ -53,7 +53,7 @@ public class TextFile {
                 writer.write(stringToWrite+'\n');
             }
         } catch (IOException e) {
-            throw new IOException("file is not available", e);
+            throw new IOException("file is not available now", e);
         }
 
     }
