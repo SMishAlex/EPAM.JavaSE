@@ -1,13 +1,12 @@
 package com.epam.courses.javase.msid.unit05.task1;
 
-import com.sun.org.apache.xerces.internal.xs.StringList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -26,13 +25,15 @@ public class TextFileTest {
     }
 
     @Test
-    public void testCreatingFile() {
-        TextFile.create(fileName);
-        assertTrue("file wasn't create ", shower.contains(fileName));
+    public void testCreatingAndRemovingFile() throws IOException {
+        String name = "some.txt";
+        TextFile.create(name);
+        assertTrue("file wasn't create ", shower.contains(name));
+        TextFile.remove(name);
     }
 
     @Test
-    public void testWriteToEndOfFile() {
+    public void testWriteToEndOfFile() throws NoSuchFileException {
         TextFile textFile = new TextFile(fileName);
         int lines = textFile.getLinesNumber();
         List<String> toWrite = new ArrayList<>();
@@ -42,7 +43,7 @@ public class TextFileTest {
     }
 
     @After
-    public void removeTestingFiles() {
+    public void removeTestingFiles() throws IOException {
         TextFile.remove(fileName);
         assertFalse(shower.contains(fileName));
     }
