@@ -1,7 +1,6 @@
 package com.epam.courses.javase.msid.unit05.task1;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.NoSuchFileException;
 import java.util.List;
 
@@ -35,14 +34,28 @@ public class TextFile {
     }
 
 
-    public int getLinesNumber() {
+    public long getLinesNumber() {
+        long linesNumber = 0;
+        try (LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(data))) {
+            while (lineNumberReader.readLine() != null) {
+                linesNumber++;
+            }
 
-
-        int linesNumber = 0;
+        } catch (IOException e) {
+            // TODO: 11.03.17 some exception
+        }
         return linesNumber;
     }
 
-    public void writeToEnd(List<String> toWrite) {
+    public void writeToEnd(List<String> toWrite) throws IOException {
+        try (FileWriter writer = new FileWriter(data)) {
+            for (String stringToWrite : toWrite) {
+                writer.write(stringToWrite+'\n');
+            }
+        } catch (IOException e) {
+            throw new IOException("file is not available", e);
+        }
+
     }
 
     private static void isEndWithTatOrTrowIllegalArgumentException(String fileName) {

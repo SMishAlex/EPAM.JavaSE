@@ -21,7 +21,7 @@ public class TextFileTest {
         fileName = "test1.txt";
         TextFile.create(fileName);
         shower = new FileDirectoryShower(".");
-        //assertTrue(shower.contains(fileName));
+        assertTrue(shower.contains(fileName));
     }
 
     @Test
@@ -33,11 +33,12 @@ public class TextFileTest {
     }
 
     @Test
-    public void testWriteToEndOfFile() throws NoSuchFileException {
+    public void testWriteToEndOfFile() throws IOException {
         TextFile textFile = new TextFile(fileName);
-        int lines = textFile.getLinesNumber();
+        long lines = textFile.getLinesNumber();
         List<String> toWrite = new ArrayList<>();
         toWrite.add("some line");
+        toWrite.add("one more line");
         textFile.writeToEnd(toWrite);
         assertEquals(lines + toWrite.size(), textFile.getLinesNumber());
     }
