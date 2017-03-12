@@ -92,9 +92,24 @@ public class UserInterface {
     }
 
     private static void removeTxt() {
+        System.out.println("witch file you wanna remove?");
+        try {
+            TextFile.remove(scanner.nextLine());
+        } catch (IOException e) {
+            System.out.println("sims like there is no such directory: \n"
+                    + e.getMessage());
+        }
     }
 
     private static void createTxt() {
-
+        System.out.println("enter file name to create:");
+        try {
+            TextFile.create(scanner.nextLine());
+        } catch (IOException e) {
+            System.out.println("sims like there is no such directory: \n"
+                    + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("sorry but " + e.getMessage());
+        }
     }
 }
