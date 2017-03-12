@@ -98,6 +98,8 @@ public class UserInterface {
         } catch (IOException e) {
             System.out.println("sims like there is no such directory: \n"
                     + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("sorry but " + e.getMessage());
         }
     }
 
