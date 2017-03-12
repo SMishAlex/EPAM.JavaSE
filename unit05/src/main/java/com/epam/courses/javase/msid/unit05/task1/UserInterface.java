@@ -1,6 +1,8 @@
 package com.epam.courses.javase.msid.unit05.task1;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 public class UserInterface {
     private final static Scanner scanner = new Scanner(System.in);
@@ -62,9 +64,27 @@ public class UserInterface {
     }
 
     private static void showDirectory() {
+        show("directory");
     }
 
+
     private static void showFiles() {
+        show("file");
+    }
+
+    private static void show(String fileOrDirectory) {
+        System.out.println("enter directory for scanning: ");
+        try {
+            FileDirectoryShower shower = new FileDirectoryShower(scanner.nextLine());
+            if (fileOrDirectory.equals("directory")) {
+                shower.showDirectories();
+            } else {
+                shower.showFiles();
+            }
+        } catch (IOException e) {
+            System.out.println("sims like there is no such directory: \n"
+                    + e.getMessage());
+        }
     }
 
     private static void writeToTxt() {
