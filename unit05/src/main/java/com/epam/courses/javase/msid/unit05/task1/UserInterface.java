@@ -1,8 +1,10 @@
 package com.epam.courses.javase.msid.unit05.task1;
 
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import java.util.function.Predicate;
 
 public class UserInterface {
     private final static Scanner scanner = new Scanner(System.in);
@@ -88,7 +90,27 @@ public class UserInterface {
     }
 
     private static void writeToTxt() {
+        System.out.println("enter file to write");
+        try {
+            TextFile textFile = new TextFile(scanner.nextLine());
+            List<String> toWrite = askLinesToWrite();
+            textFile.writeToEnd(toWrite);
+        } catch (NoSuchFileException e) {
+            // TODO: 12.03.17 exception
+        } catch (IOException e) {
+            // TODO: 12.03.17 exception
+        }
 
+    }
+
+    private static List<String> askLinesToWrite() {
+        List<String> toWrite = new ArrayList<>();
+        do {
+            System.out.println("enter line to write to end of file");
+            toWrite.add(scanner.nextLine());
+            System.out.println("wanna write something else?");
+        } while (scanner.nextLine().equalsIgnoreCase("y"));
+        return toWrite;
     }
 
     private static void removeTxt() {

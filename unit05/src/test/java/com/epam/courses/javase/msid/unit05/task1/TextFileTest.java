@@ -41,6 +41,8 @@ public class TextFileTest {
         toWrite.add("one more line");
         textFile.writeToEnd(toWrite);
         assertEquals(lines + toWrite.size(), textFile.getLinesNumber());
+        textFile.writeToEnd(toWrite);
+        assertEquals(lines + toWrite.size()*2, textFile.getLinesNumber());
     }
 
     @After

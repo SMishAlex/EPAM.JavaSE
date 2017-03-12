@@ -48,7 +48,7 @@ public class TextFile {
     }
 
     public void writeToEnd(List<String> toWrite) throws IOException {
-        try (FileWriter writer = new FileWriter(data)) {
+        try (FileWriter writer = new FileWriter(data,true)) {
             for (String stringToWrite : toWrite) {
                 writer.write(stringToWrite+'\n');
             }
