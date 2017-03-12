@@ -13,7 +13,7 @@ public class FileDirectoryShowerTest {
 
     @Before
     public void init() throws IOException {
-        shower =  new FileDirectoryShower(".");
+        shower = new FileDirectoryShower(".");
     }
 
     @Test
@@ -22,8 +22,8 @@ public class FileDirectoryShowerTest {
     }
 
     @Test
-    public void testGetFiles(){
-        assertEquals(2,shower.getFiles().length);
+    public void testGetFiles() {
+        assertEquals(2, shower.getFiles().length);
         shower.showFiles();
         assertTrue(shower.contains("pom.xml"));
     }

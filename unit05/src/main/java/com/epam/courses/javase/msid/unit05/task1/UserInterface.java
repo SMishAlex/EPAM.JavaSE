@@ -95,12 +95,9 @@ public class UserInterface {
             TextFile textFile = new TextFile(scanner.nextLine());
             List<String> toWrite = askLinesToWrite();
             textFile.writeToEnd(toWrite);
-        } catch (NoSuchFileException e) {
-            // TODO: 12.03.17 exception
-        } catch (IOException e) {
-            // TODO: 12.03.17 exception
+        } catch (IOException | IllegalArgumentException e) {
+            System.out.println("sorry but " + e.getMessage());
         }
-
     }
 
     private static List<String> askLinesToWrite() {

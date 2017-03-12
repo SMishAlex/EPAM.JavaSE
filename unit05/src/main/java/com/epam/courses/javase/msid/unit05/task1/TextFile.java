@@ -48,9 +48,9 @@ public class TextFile {
     }
 
     public void writeToEnd(List<String> toWrite) throws IOException {
-        try (FileWriter writer = new FileWriter(data,true)) {
+        try (FileWriter writer = new FileWriter(data, true)) {
             for (String stringToWrite : toWrite) {
-                writer.write(stringToWrite+'\n');
+                writer.write(stringToWrite + '\n');
             }
         } catch (IOException e) {
             throw new IOException("file is not available now", e);

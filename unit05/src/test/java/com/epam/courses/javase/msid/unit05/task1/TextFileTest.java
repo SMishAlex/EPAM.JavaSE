@@ -42,7 +42,7 @@ public class TextFileTest {
         textFile.writeToEnd(toWrite);
         assertEquals(lines + toWrite.size(), textFile.getLinesNumber());
         textFile.writeToEnd(toWrite);
-        assertEquals(lines + toWrite.size()*2, textFile.getLinesNumber());
+        assertEquals(lines + toWrite.size() * 2, textFile.getLinesNumber());
     }
 
     @After

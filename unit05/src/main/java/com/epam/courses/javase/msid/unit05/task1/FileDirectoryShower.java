@@ -37,16 +37,16 @@ public class FileDirectoryShower {
         return pathFilter(File::isFile);
     }
 
-    public void showFiles(){
+    public void showFiles() {
         for (File directory : getFiles()) {
             System.out.println(directory.getName());
         }
     }
 
-    public boolean contains(String fileOrDirectoryName){
+    public boolean contains(String fileOrDirectoryName) {
         File[] filtered = pathFilter((x) -> x.getName().equals(fileOrDirectoryName));
-        return filtered.length==0?
-                false:
+        return filtered.length == 0 ?
+                false :
                 true;
     }
 }
