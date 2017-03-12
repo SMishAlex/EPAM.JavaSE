@@ -43,14 +43,14 @@ public class UserInterface {
             case SHOW_DIRECTORIES:
                 showDirectory();
                 break;
+            case SHOW_FILES:
+                showFiles();
+                break;
             case CREATE_TXT_FILE:
                 createTxt();
                 break;
             case REMOVE_TXT_FILE:
                 removeTxt();
-                break;
-            case SHOW_FILES:
-                showFiles();
                 break;
             case WRITE_TO_TXT_FILE:
                 writeToTxt();
@@ -61,11 +61,14 @@ public class UserInterface {
 
     }
 
-    private static void writeToTxt() {
-
+    private static void showDirectory() {
     }
 
     private static void showFiles() {
+    }
+
+    private static void writeToTxt() {
+
     }
 
     private static void removeTxt() {
@@ -73,8 +76,5 @@ public class UserInterface {
 
     private static void createTxt() {
 
-    }
-
-    private static void showDirectory() {
     }
 }
