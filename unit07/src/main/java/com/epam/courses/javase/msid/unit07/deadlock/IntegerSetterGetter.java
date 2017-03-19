@@ -7,6 +7,7 @@ public class IntegerSetterGetter extends Thread {
     private boolean run;
 
     private Random rand = new Random();
+    private int tryLimit = 5;
 
     public IntegerSetterGetter(String name, SharedResource resource) {
         super(name);
@@ -35,7 +36,6 @@ public class IntegerSetterGetter extends Thread {
 
     private void getIntegersFromResource() throws InterruptedException {
         Integer number;
-        int tryLimit = 10;
 
         synchronized (resource) {
             int tryCount = 0;
@@ -51,8 +51,12 @@ public class IntegerSetterGetter extends Thread {
                 number = resource.getElement();
                 tryCount++;
             }
-            System.out
-                    .println("Поток " + getName() + " извлек число " + number);
+            if (number != null) {
+                System.out
+                        .println("Поток " + getName() + " извлек число " + number);
+            } else {
+                System.out.println("Поток " + getName() + " не смог извлечь число и переходит к другому заданию");
+            }
         }
     }
 
