@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserResourceThread {
+
+    private static int threadNumber = 5;
+
     public static void main(String[] args) throws InterruptedException {
 
         SharedResource res = new SharedResource();
         List<IntegerSetterGetter> setterGetterList = new ArrayList<>();
-        
-        for (int i = 0; i < 5; i++) {
+
+        for (int i = 0; i < threadNumber; i++) {
             setterGetterList.add(new IntegerSetterGetter(i + "", res));
         }
 
