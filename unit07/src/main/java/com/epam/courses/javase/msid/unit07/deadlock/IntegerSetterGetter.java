@@ -19,12 +19,9 @@ public class IntegerSetterGetter extends Thread {
     }
 
     public void run() {
-        int action;
-
         try {
             while (run) {
-                action = rand.nextInt(1000);
-                if (action % 2 == 0) {
+                if (rand.nextBoolean()) {
                     getIntegersFromResource();
                 } else {
                     setIntegersIntoResource();
@@ -38,18 +35,21 @@ public class IntegerSetterGetter extends Thread {
 
     private void getIntegersFromResource() throws InterruptedException {
         Integer number;
+        int tryLimit = 10;
 
         synchronized (resource) {
+            int tryCount = 0;
             System.out.println("Поток " + getName()
                     + " хочет извлечь число.");
             number = resource.getElement();
-            while (number == null) {
+            while (number == null && (tryCount < tryLimit)) {
                 System.out.println("Поток " + getName()
                         + " ждет пока очередь заполнится.");
-                resource.wait();
+                resource.wait(100);
                 System.out
                         .println("Поток " + getName() + " возобновил работу.");
                 number = resource.getElement();
+                tryCount++;
             }
             System.out
                     .println("Поток " + getName() + " извлек число " + number);

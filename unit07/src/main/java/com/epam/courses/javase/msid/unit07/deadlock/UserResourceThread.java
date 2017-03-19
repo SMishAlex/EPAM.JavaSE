@@ -5,7 +5,7 @@ import java.util.List;
 
 public class UserResourceThread {
 
-    private static int threadNumber = 5;
+    private static int threadNumber = 2;
 
     public static void main(String[] args) throws InterruptedException {
 
