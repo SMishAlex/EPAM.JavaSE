@@ -1,33 +1,31 @@
 package com.epam.courses.javase.msid.unit07.deadlock;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserResourceThread {
     public static void main(String[] args) throws InterruptedException {
-        SharedResource res = new SharedResource();
-        IntegerSetterGetter t1 = new IntegerSetterGetter("1", res);
-        IntegerSetterGetter t2 = new IntegerSetterGetter("2", res);
-        IntegerSetterGetter t3 = new IntegerSetterGetter("3", res);
-        IntegerSetterGetter t4 = new IntegerSetterGetter("4", res);
-        IntegerSetterGetter t5 = new IntegerSetterGetter("5", res);
 
-        t1.start();
-        t2.start();
-        t3.start();
-        t4.start();
-        t5.start();
+        SharedResource res = new SharedResource();
+        List<IntegerSetterGetter> setterGetterList = new ArrayList<>();
+        
+        for (int i = 0; i < 5; i++) {
+            setterGetterList.add(new IntegerSetterGetter(i + "", res));
+        }
+
+        for (IntegerSetterGetter t : setterGetterList) {
+            t.start();
+        }
 
         Thread.sleep(100);
 
-        t1.stopThread();
-        t2.stopThread();
-        t3.stopThread();
-        t4.stopThread();
-        t5.stopThread();
+        for (IntegerSetterGetter t : setterGetterList) {
+            t.stopThread();
+        }
 
-        t1.join();
-        t2.join();
-        t3.join();
-        t4.join();
-        t5.join();
+        for (IntegerSetterGetter t : setterGetterList) {
+            t.join();
+        }
 
         System.out.println("main");
     }
