@@ -1,21 +1,12 @@
 package com.epam.courses.javase.msid.unit07.synchronised1;
 
-public class Account {
-    private int balance;
+import java.util.concurrent.atomic.AtomicInteger;
 
-    public Account(int startBalance) {
-        balance = startBalance;
-    }
+public interface Account {
 
-    public void withdraw(int amount) {
-        balance += amount;
-    }
+    void withdraw(int amount);
 
-    public void deposit(int amount) {
-        balance -= amount;
-    }
+    void deposit(int amount);
 
-    public int getBalance() {
-        return balance;
-    }
+    int getBalance();
 }
