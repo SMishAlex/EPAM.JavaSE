@@ -15,9 +15,7 @@ public class PropertyReader {
     private static Lock lock = new ReentrantLock();
 
     public PropertyReader(String fileName) throws FileNotFoundException {
-        while (!lock.tryLock()) {
-            System.out.println("file is busy...");
-        }
+        waitUnlocking();
         if (history == null) {
             history = new HashMap<>();
         }
@@ -30,11 +28,17 @@ public class PropertyReader {
         lock.unlock();
     }
 
+    private void waitUnlocking() {
+        while (!lock.tryLock()) {
+            System.out.println("file is busy...");
+        }
+    }
+
     private void readProperties(String fileName) throws FileNotFoundException {
         properties = new Properties();
         try (Scanner scanner = new Scanner(new BufferedReader(new FileReader(fileName)))) {
+            Pattern pattern = Pattern.compile("([^=]+)=(.+)");
             while (scanner.hasNextLine()) {
-                Pattern pattern = Pattern.compile("([^=]+)=(.+)");
                 String input = scanner.nextLine();
                 Matcher m = pattern.matcher(input);
                 if (m.find()) {
@@ -46,5 +50,9 @@ public class PropertyReader {
 
     public Set<Object> getKeySet() {
         return properties.keySet();
+    }
+
+    public Object get(Object key){
+        return properties.get(key);
     }
 }
