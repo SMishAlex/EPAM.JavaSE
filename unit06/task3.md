@@ -4,8 +4,8 @@ class Nurse extends MedicalStaff{}
 class HeadDoctor extends Doctor{}
 
 
-||correct|not correct| Explain|
-|-|-|-|
+|       |   correct | Explain   |
+|-------|-----------|-----------|
 |Doctor doctor1 = new Doctor();|correct|ref and object have same type|
 |Doctor doctor2 = new MedicalStaff();|incorrect|medical staff super class for doctor|
 |Doctor doctor3 = new HeadDoctor();|correct|doctor staff super class for head doctor|
