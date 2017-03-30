@@ -117,6 +117,7 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
         if (cmp < 0) x.left = delete(x.left, key);
         else if (cmp > 0) x.right = delete(x.right, key);
         else {
+            size--;
             if (x.right == null) return x.left;
             if (x.left == null) return x.right;
 
@@ -143,7 +144,8 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public void clear() {
-
+        this.root = null;
+        this.size = 0;
     }
 
     @Override
