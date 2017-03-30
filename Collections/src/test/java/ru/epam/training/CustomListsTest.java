@@ -186,6 +186,15 @@ public class CustomListsTest {
         assertThat(indexOf, equalTo(4));
     }
 
+    @Test
+    public void testThatIndexOfNonsexistValueIsNegative() throws Exception {
+        fillList();
+
+        int indexOf = list.indexOf("q's");
+
+        assertThat(indexOf, equalTo(-1));
+    }
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");
