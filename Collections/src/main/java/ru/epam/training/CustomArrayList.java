@@ -60,7 +60,7 @@ public class CustomArrayList<T> implements List<T> {
     public boolean remove(Object o) {
 
         int index = indexOf(o);
-        if(index==-1){
+        if (index == -1) {
             return false;
         }
         remove(index);
@@ -163,7 +163,11 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public List<T> subList(int fromIndex, int toIndex) {
-        return null;
+        checkIndexOutOfBound(fromIndex);
+        checkIndexOutOfBound(toIndex);
+        CustomArrayList<T> result = new CustomArrayList<>();
+        result.data = Arrays.copyOfRange(this.data, fromIndex, toIndex);
+        return result;
     }
 
     private void assureCapacity() {

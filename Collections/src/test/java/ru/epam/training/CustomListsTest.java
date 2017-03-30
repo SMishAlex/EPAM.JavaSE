@@ -13,6 +13,7 @@ import static junit.framework.TestCase.assertFalse;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
@@ -193,6 +194,15 @@ public class CustomListsTest {
         int indexOf = list.indexOf("q's");
 
         assertThat(indexOf, equalTo(-1));
+    }
+
+    @Test
+    public void testThatWeCanGetSublistByIbexes() throws Exception {
+        fillList();
+
+        List<String> subList = list.subList(0, list.size()-1);
+
+        assertEquals(list, subList);
     }
 
     private void fillList() {

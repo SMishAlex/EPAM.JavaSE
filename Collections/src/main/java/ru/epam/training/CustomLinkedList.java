@@ -145,7 +145,7 @@ public class CustomLinkedList<T> implements List<T> {
         int currentIndex = 0;
         while (current != null) {
             if (o.equals(current.value)) {
-               return currentIndex;
+                return currentIndex;
             }
             current = current.next;
             currentIndex++;
@@ -170,7 +170,16 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public List<T> subList(int fromIndex, int toIndex) {
-        return null;
+
+        Node<T> current = getNodeByIndex(fromIndex);
+        Node<T> end = getNodeByIndex(toIndex);
+
+        CustomLinkedList<T> result = new CustomLinkedList<>();
+        while (current != end.next) {
+            result.add(current.value);
+            current = current.next;
+        }
+        return result;
     }
 
     private Node<T> getNodeByIndex(int index) {
@@ -199,5 +208,17 @@ public class CustomLinkedList<T> implements List<T> {
             return next != null;
         }
 
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node<T> current = head.next;
+        while (current != null) {
+            sb.append(current.value);
+            sb.append("\n");
+            current = current.next;
+        }
+        return sb.toString();
     }
 }
