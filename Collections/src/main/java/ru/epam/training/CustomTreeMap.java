@@ -98,30 +98,43 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
         }
     }
 
+    //region removing
     @Override
     public V remove(Object key) {
-        Node<K, V> parent = parentOf((K) key);
-        return parent.value;
-    }
-
-    private Node<K, V> parentOf(K key) {
-        Node<K, V> currentNode = root;
-        Node<K, V> previousNode = null;
-
-        while (currentNode != null) {
-            int compere = currentNode.key.compareTo(key);
-            if (compere == 0) {
-                return previousNode;
-            }
-            previousNode = currentNode;
-            if (compere < 0) {
-                currentNode = currentNode.right;
-            } else if (compere > 0) {
-                currentNode = currentNode.left;
-            }
-        }
+        root = delete(root, (K) key);
         return null;
     }
+
+    private Node<K, V> deleteMin(Node<K, V> x) {
+        if (x.left == null) return x.right;
+        x.left = deleteMin(x.left);
+        return x;
+    }
+
+    private Node<K, V> delete(Node x, K key) {
+        if (x == null) return null;
+        int cmp = key.compareTo((K) x.key);
+        if (cmp < 0) x.left = delete(x.left, key);
+        else if (cmp > 0) x.right = delete(x.right, key);
+        else {
+            if (x.right == null) return x.left;
+            if (x.left == null) return x.right;
+
+            Node t = x;
+            x = min(t.right);
+            x.right = deleteMin(t.right);
+            x.left = t.left;
+        }
+        return x;
+    }
+
+    private Node<K, V> min(Node<K, V> tree) {
+        while (tree.left != null) {
+            tree = tree.left;
+        }
+        return tree;
+    }
+    //endregion
 
     @Override
     public void putAll(Map<? extends K, ? extends V> m) {
