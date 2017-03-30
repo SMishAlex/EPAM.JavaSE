@@ -50,13 +50,11 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public boolean add(T t) {
-        if (size == data.length) {
-            int newLength = (data.length * 3) / 2 + 1;
-            data = Arrays.copyOf(data, newLength);
-        }
+        assureCapacity();
         data[size++] = t;
         return false;
     }
+
 
     @Override
     public boolean remove(Object o) {
@@ -115,14 +113,18 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public void add(int index, T element) {
-
+        assureCapacity();
+        int length = data.length - index;
+        System.arraycopy(data, index, data, index + 1, length - 1);
+        data[index] = element;
+        size++;
     }
 
     @Override
     public T remove(int index) {
         int length = data.length - index;
         T value = (T) data[index];
-        System.arraycopy(data, index + 1, data, index, length-1);
+        System.arraycopy(data, index + 1, data, index, length - 1);
         size--;
         return value;
     }
@@ -150,5 +152,12 @@ public class CustomArrayList<T> implements List<T> {
     @Override
     public List<T> subList(int fromIndex, int toIndex) {
         return null;
+    }
+
+    private void assureCapacity() {
+        if (size == data.length) {
+            int newLength = (data.length * 3) / 2 + 1;
+            data = Arrays.copyOf(data, newLength);
+        }
     }
 }

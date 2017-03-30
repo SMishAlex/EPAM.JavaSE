@@ -121,7 +121,12 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public void add(int index, T element) {
+        Node<T> current = getNodeByIndex(index - 1);
+        size++;
+        Node<T> nodeToAdd = new Node<>(element);
 
+        nodeToAdd.next = current.next;
+        current.next = nodeToAdd;
     }
 
     @Override
