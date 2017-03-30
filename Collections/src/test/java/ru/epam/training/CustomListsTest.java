@@ -220,6 +220,21 @@ public class CustomListsTest {
         }
     }
 
+    @Test
+    public void testThatWeCanAddAllByIndex() throws Exception {
+        fillList();
+
+        List<String> list2 = new ArrayList();
+        list2.add("aa5a");
+        list2.add("aa6a");
+        list2.add("aa7a");
+        list.addAll(4, list2);
+        for (int i = 0; i < list2.size(); i++) {
+            assertThat(list.contains(list2.get(i)), is(true));
+            assertThat(list.indexOf(list2.get(i)), is(4 + i));
+        }
+    }
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");

@@ -80,13 +80,13 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
         for (T cur : c) {
-            if(!this.add(cur)){
+            if (!this.add(cur)) {
                 return false;
             }
         }
@@ -95,10 +95,9 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public boolean addAll(int index, Collection<? extends T> c) {
-        for (T cur : c) {
-            if(!add(cur)){
-                return false;
-            }
+        T[] array = (T[]) c.toArray();
+        for (int i = array.length - 1; i >=0; i--) {
+            this.add(index, array[i]);
         }
         return true;
     }
