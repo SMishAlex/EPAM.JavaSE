@@ -149,19 +149,47 @@ public class CustomListsTest {
         int oldSize = list.size();
 
         String addedElement = "aaa5";
-        list.add(5, addedElement);
+        list.add(3, addedElement);
 
         assertThat(list.contains(addedElement), is(true));
 
         assertThat(list.size(), is(equalTo(oldSize + 1)));
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testThatWeCantAddElementByIndexOutOfCurrentSizePlusOne() throws Exception {
+        fillList();
+
+        int oldSize = list.size();
+
+        String addedElement = "aaa5";
+        list.add(list.size() + 1, addedElement);
+
+        assertThat(list.contains(addedElement), is(true));
+
+        assertThat(list.size(), is(equalTo(oldSize + 1)));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testThatWeCantRemoveElementByIndexOutOfBound() throws Exception {
+        fillList();
+
+        list.remove(list.size());
+    }
+
+    @Test
+    public void testThatWeCanGetIndexOfValue() throws Exception {
+        fillList();
+
+        int indexOf = list.indexOf("aa4a");
+
+        assertThat(indexOf, equalTo(4));
+    }
 
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");
         list.add("aa2a");
-        list.add("ssss");
         list.add("aa3a");
         list.add("aa4a");
     }

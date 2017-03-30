@@ -132,15 +132,25 @@ public class CustomLinkedList<T> implements List<T> {
     @Override
     public T remove(int index) {
         Node<T> current = getNodeByIndex(index - 1);
+        Node<T> next = getNodeByIndex(index);
         size--;
-        T value = current.next.value;
+        T value = next.value;
         current.next = current.next.next;
         return value;
     }
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        Node<T> current = head.next;
+        int currentIndex = 0;
+        while (current != null) {
+            if (o.equals(current.value)) {
+               return currentIndex;
+            }
+            current = current.next;
+            currentIndex++;
+        }
+        return -1;
     }
 
     @Override
