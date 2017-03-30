@@ -142,6 +142,21 @@ public class CustomListsTest {
         assertFalse(list.remove("sadasdasd"));
     }
 
+    @Test
+    public void testThatWeCanAddElementIntoCustomPosition() throws Exception {
+        fillList();
+
+        int oldSize = list.size();
+
+        String addedElement = "aaa5";
+        list.add(5, addedElement);
+
+        assertThat(list.contains(addedElement), is(true));
+
+        assertThat(list.size(), is(equalTo(oldSize + 1)));
+    }
+
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");
