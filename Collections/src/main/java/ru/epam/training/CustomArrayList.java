@@ -35,7 +35,19 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new Iterator<T>() {
+            int currentPosition = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentPosition<size;
+            }
+
+            @Override
+            public T next() {
+                return (T) data[currentPosition++];
+            }
+        };
     }
 
     @Override
@@ -93,12 +105,20 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return false;
+        for (Object o : c) {
+            remove(o);
+        }
+        return true;
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        return false;
+        for (Object o : this) {
+            if (!c.contains(o)) {
+                remove(o);
+            }
+        }
+        return true;
     }
 
     @Override

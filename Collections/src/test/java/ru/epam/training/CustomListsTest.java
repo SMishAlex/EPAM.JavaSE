@@ -247,6 +247,30 @@ public class CustomListsTest {
         }
     }
 
+    @Test
+    public void testThatWeCanRemoveAllElementsContainingInOtherCollection() throws Exception {
+        fillList();
+
+        List<String> list2 = new ArrayList<>();
+        list2.addAll(list);
+
+        list.removeAll(list2);
+
+        assertThat(list.isEmpty(), is(true));
+    }
+
+    @Test
+    public void testThatWeCanRetainAllElementsFromOtherCollection() throws Exception {
+        fillList();
+
+        List<String> list2 = new ArrayList<>();
+        list2.addAll(list);
+        list2.remove(0);
+
+        list.retainAll(list2);
+        assertThat(list.size(), is(equalTo(list2.size())));
+    }
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");

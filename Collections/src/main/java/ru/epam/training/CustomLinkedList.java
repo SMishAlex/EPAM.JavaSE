@@ -38,14 +38,27 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new Iterator<T>() {
+            private Node<T> currentNode = head;
+
+            @Override
+            public boolean hasNext() {
+                return currentNode.hasNext();
+            }
+
+            @Override
+            public T next() {
+                currentNode = currentNode.next;
+                return currentNode.value;
+            }
+        };
     }
 
     @Override
     public Object[] toArray() {
         Object[] objects = new Object[size];
         Node<T> iterator = head;
-        int i=0;
+        int i = 0;
         while (iterator.hasNext()) {
             objects[i] = iterator.next.value;
             iterator = iterator.next;
@@ -56,7 +69,7 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public <T1> T1[] toArray(T1[] a) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -104,7 +117,7 @@ public class CustomLinkedList<T> implements List<T> {
     @Override
     public boolean addAll(int index, Collection<? extends T> c) {
         T[] array = (T[]) c.toArray();
-        for (int i = array.length - 1; i >=0; i--) {
+        for (int i = array.length - 1; i >= 0; i--) {
             this.add(index, array[i]);
         }
         return true;
@@ -112,12 +125,20 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return false;
+        for (Object o : c) {
+            remove(o);
+        }
+        return true;
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        return false;
+        for (Object o : this) {
+            if (!c.contains(o)) {
+                remove(o);
+            }
+        }
+        return true;
     }
 
     @Override
@@ -152,7 +173,7 @@ public class CustomLinkedList<T> implements List<T> {
         Node<T> next = getNodeByIndex(index);
         size--;
         T value = next.value;
-        current.next = current.next.next;
+        current.next = next.next;
         return value;
     }
 
