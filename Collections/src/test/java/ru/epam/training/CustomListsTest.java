@@ -271,6 +271,16 @@ public class CustomListsTest {
         assertThat(list.size(), is(equalTo(list2.size())));
     }
 
+    @Test
+    public void testWeCanSetElementByIndex() throws Exception {
+        fillList();
+
+        String element = "bb0b";
+        list.set(0, element);
+
+        assertThat(list.contains(element), is(true));
+    }
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");

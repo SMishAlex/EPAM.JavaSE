@@ -141,7 +141,9 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public T set(int index, T element) {
-        return null;
+        Object oldValue = data[index];
+        data[index] = element;
+        return (T) oldValue;
     }
 
     @Override
