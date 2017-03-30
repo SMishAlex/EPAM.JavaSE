@@ -211,6 +211,34 @@ public class CustomLinkedList<T> implements List<T> {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CustomLinkedList)) return false;
+
+        CustomLinkedList<?> that = (CustomLinkedList<?>) o;
+
+        if (size != that.size) return false;
+
+        Node<T> currentThis = head.next;
+        Node<T> currentO = ((CustomLinkedList) o).head.next;
+        while (currentThis != null) {
+            if (!currentO.value.equals(currentThis.value)){
+                return false;
+            }
+            currentThis = currentThis.next;
+            currentO = currentO.next;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = head.hashCode();
+        result = 31 * result + size;
+        return result;
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         Node<T> current = head.next;

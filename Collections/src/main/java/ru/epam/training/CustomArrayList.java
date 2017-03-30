@@ -162,11 +162,35 @@ public class CustomArrayList<T> implements List<T> {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CustomArrayList)) return false;
+
+        CustomArrayList<?> that = (CustomArrayList<?>) o;
+
+        if (size != that.size) return false;
+        for (int i = 0; i < this.size; i++) {
+            if (!this.data[i].equals(that.data[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(data);
+        result = 31 * result + size;
+        return result;
+    }
+
+    @Override
     public List<T> subList(int fromIndex, int toIndex) {
         checkIndexOutOfBound(fromIndex);
         checkIndexOutOfBound(toIndex);
         CustomArrayList<T> result = new CustomArrayList<>();
-        result.data = Arrays.copyOfRange(this.data, fromIndex, toIndex);
+        result.data = Arrays.copyOfRange(this.data, fromIndex, toIndex + 1);
+        result.size = result.data.length;
         return result;
     }
 
