@@ -40,7 +40,7 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        return Arrays.copyOf(data, size);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class CustomArrayList<T> implements List<T> {
     @Override
     public boolean addAll(int index, Collection<? extends T> c) {
         T[] array = (T[]) c.toArray();
-        for (int i = array.length - 1; i >=0; i--) {
+        for (int i = array.length - 1; i >= 0; i--) {
             this.add(index, array[i]);
         }
         return true;

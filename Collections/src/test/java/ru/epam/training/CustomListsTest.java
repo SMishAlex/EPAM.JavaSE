@@ -235,6 +235,18 @@ public class CustomListsTest {
         }
     }
 
+    @Test
+    public void testThatWeCanGetArrayOfListData() throws Exception {
+        fillList();
+
+        Object[] array = list.toArray();
+
+        assertThat(array.length, is(equalTo(list.size())));
+        for (int i = 0; i < array.length; i++) {
+            assertThat(array[i], equalTo(list.get(i)));
+        }
+    }
+
     private void fillList() {
         list.add("aa0a");
         list.add("aa1a");
