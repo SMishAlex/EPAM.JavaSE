@@ -59,7 +59,7 @@ public class CustomLinkedList<T> implements List<T> {
         }
         iterator.next = new Node<>(t);
         size++;
-        return false;
+        return true;
     }
 
     @Override
@@ -85,12 +85,22 @@ public class CustomLinkedList<T> implements List<T> {
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        return false;
+        for (T cur : c) {
+            if(!this.add(cur)){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends T> c) {
-        return false;
+        for (T cur : c) {
+            if(!add(cur)){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -222,7 +232,7 @@ public class CustomLinkedList<T> implements List<T> {
         Node<T> currentThis = head.next;
         Node<T> currentO = ((CustomLinkedList) o).head.next;
         while (currentThis != null) {
-            if (!currentO.value.equals(currentThis.value)){
+            if (!currentO.value.equals(currentThis.value)) {
                 return false;
             }
             currentThis = currentThis.next;

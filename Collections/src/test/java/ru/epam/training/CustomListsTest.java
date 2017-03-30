@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -200,9 +201,23 @@ public class CustomListsTest {
     public void testThatWeCanGetSublistByIbexes() throws Exception {
         fillList();
 
-        List<String> subList = list.subList(0, list.size()-1);
+        List<String> subList = list.subList(0, list.size() - 1);
 
         assertEquals(list, subList);
+    }
+
+    @Test
+    public void testThatWeCanAddAllElementFromOtherCollection() throws Exception {
+        fillList();
+
+        List<String> list2 = new ArrayList();
+        list2.add("aa5a");
+        list2.add("aa6a");
+        list2.add("aa7a");
+        list.addAll(list2);
+        for (int i = 0; i < list2.size(); i++) {
+            assertThat(list.contains(list2.get(i)), is(true));
+        }
     }
 
     private void fillList() {

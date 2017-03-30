@@ -74,6 +74,9 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
+        for (T cur : c) {
+            this.add(cur);
+        }
         return false;
     }
 
@@ -170,7 +173,7 @@ public class CustomArrayList<T> implements List<T> {
 
         if (size != that.size) return false;
         for (int i = 0; i < this.size; i++) {
-            if (!this.data[i].equals(that.data[i])){
+            if (!this.data[i].equals(that.data[i])) {
                 return false;
             }
         }
