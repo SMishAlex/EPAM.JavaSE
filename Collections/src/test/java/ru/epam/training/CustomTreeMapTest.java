@@ -113,9 +113,7 @@ public class CustomTreeMapTest {
 
     @Test
     public void testThatWeCanPut10DifferentKeysInMap() {
-        IntStream.range(1, 10).forEach(
-                i -> m.put(i, String.valueOf(i))
-        );
+        fieldM();
 
         IntStream.range(1, 10).forEach(
                 i -> assertTrue(m.containsKey(i))
@@ -125,12 +123,30 @@ public class CustomTreeMapTest {
 
     @Test
     public void testThatMapCalculateItsSizeProperly() {
-        IntStream.range(1, 10).forEach(
-                i -> m.put(i, String.valueOf(i))
-        );
+        fieldM();
 
         assertThat(m.size(), is(equalTo(9)));
     }
 
+    @Test
+    public void testWeCanRemoveElementsByKey() throws Exception {
+        fieldM();
 
+        m.remove(1);
+
+        assertFalse(m.containsKey(1));
+    }
+
+    @Test
+    public void testWeCanGetElementByKey() throws Exception {
+        fieldM();
+
+        assertThat(m.get(5), is(equalTo("5")));
+    }
+
+    private void fieldM() {
+        IntStream.range(1, 10).forEach(
+                i -> m.put(i, String.valueOf(i))
+        );
+    }
 }

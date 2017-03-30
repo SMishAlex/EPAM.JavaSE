@@ -41,6 +41,24 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public V get(Object key) {
+        Node<K, V> node = nodeWithKey((K) key);
+        return (node == null) ?
+                null :
+                node.value;
+    }
+
+    private Node<K, V> nodeWithKey(K key) {
+        Node<K, V> currentNode = root;
+        while (currentNode != null) {
+            int compere = currentNode.key.compareTo(key);
+            if (compere < 0) {
+                currentNode = currentNode.right;
+            } else if (compere > 0) {
+                currentNode = currentNode.left;
+            } else {
+                return currentNode;
+            }
+        }
         return null;
     }
 
