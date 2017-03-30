@@ -122,12 +122,14 @@ public class CustomTreeMapTest {
         );
     }
 
-    @Test(expected = ClassCastException.class)
-    public void testValueContainsMethodThrowsExceptionOnWrongInputValueClass() {
-    }
 
     @Test
     public void testThatMapCalculateItsSizeProperly() {
+        IntStream.range(1, 10).forEach(
+                i -> m.put(i, String.valueOf(i))
+        );
+
+        assertThat(m.size(), is(equalTo(9)));
     }
 
 
