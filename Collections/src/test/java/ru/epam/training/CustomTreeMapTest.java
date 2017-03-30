@@ -144,6 +144,7 @@ public class CustomTreeMapTest {
         assertThat(m.get(5), is(equalTo("5")));
     }
 
+
     private void fieldM() {
         IntStream.range(1, 10).forEach(
                 i -> m.put(i, String.valueOf(i))
