@@ -24,19 +24,23 @@ public class CustomHashMap<K, V> implements Map<K, V> {
     @Override
     public boolean containsKey(Object key) {
         Objects.requireNonNull(key);
-        CustomEntry<K, V> bucket = buckets[key.hashCode() % buckets.length];
-        return isKeyInBucket(bucket, (K) key);
+        return keyEntry((K) key) != null;
     }
 
-    private boolean isKeyInBucket(CustomEntry<K, V> bucket, K key) {
+    private CustomEntry<K, V> keyEntry(K key) {
+        CustomEntry<K, V> bucket = buckets[hash(key)];
+        return keyInBucket(bucket, key);
+    }
+
+    private CustomEntry<K, V> keyInBucket(CustomEntry<K, V> bucket, K key) {
         CustomEntry<K, V> currentEntry = bucket;
         while (currentEntry != null) {
             if (currentEntry.key.equals(key)) {
-                return true;
+                return currentEntry;
             }
             currentEntry = currentEntry.next();
         }
-        return false;
+        return null;
     }
 
     @Override
@@ -46,14 +50,19 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public V get(Object key) {
-        return null;
+        CustomEntry<K, V> keyEntry = keyEntry((K) key);
+        return (keyEntry == null) ? null : keyEntry.getValue();
     }
 
     @Override
     public V put(K key, V value) {
         Objects.requireNonNull(key);
-        int bucketNumber = key.hashCode() % buckets.length;
+        int bucketNumber = hash(key);
         return putInBucket(bucketNumber, key, value);
+    }
+
+    private int hash(Object key) {
+        return key.hashCode() % buckets.length;
     }
 
     private V putInBucket(int bucketNumber, K key, V value) {
@@ -84,12 +93,13 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public void putAll(Map<? extends K, ? extends V> m) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void clear() {
-
+        buckets = new CustomEntry[DEFAULT_CAPACITY];
+        size = 0;
     }
 
     @Override
