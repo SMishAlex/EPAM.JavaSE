@@ -8,22 +8,23 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     private CustomEntry<K, V>[] buckets = new CustomEntry[DEFAULT_CAPACITY];
 
+    private int size = 0;
+
     @Override
     public int size() {
-        // TODO: 31.03.17
-        return 0;
+
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO: 31.03.17
-        return true;
+        return size == 0;
     }
 
     @Override
     public boolean containsKey(Object key) {
         CustomEntry<K, V> bucket = buckets[0];
-        if(bucket != null){
+        if (bucket != null) {
             return bucket.key.equals(key);
         }
         return false;
