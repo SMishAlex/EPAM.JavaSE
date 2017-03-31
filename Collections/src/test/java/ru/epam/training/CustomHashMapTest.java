@@ -50,6 +50,8 @@ public class CustomHashMapTest {
 
     @Test
     public void testThatWeCanPutNullValue() {
+        m.put(1, null);
+        assertThat(m.containsValue(null), is(true));
     }
 
     @Test(expected = OutOfMemoryError.class)
@@ -66,10 +68,7 @@ public class CustomHashMapTest {
 
     @Test(expected = NullPointerException.class)
     public void testThatContainsKeyMethodThrowsExceptionOnNullKey() {
-    }
 
-    @Test(expected = ClassCastException.class)
-    public void testThatContainsKeyMethodThrowsExceptionOnWrongKeyClass() {
     }
 
     @Test

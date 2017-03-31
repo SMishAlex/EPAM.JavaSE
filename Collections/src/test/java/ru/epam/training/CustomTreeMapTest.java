@@ -87,11 +87,6 @@ public class CustomTreeMapTest {
         m.containsKey(null);
     }
 
-    @Test(expected = ClassCastException.class)
-    public void testThatContainsKeyMethodThrowsExceptionOnWrongKeyClass() {
-        m.put(1, ""); //TODO need to remove
-        m.containsKey(new String(""));
-    }
 
     @Test
     public void testContainsValueMethodWorksProperlyOn() {

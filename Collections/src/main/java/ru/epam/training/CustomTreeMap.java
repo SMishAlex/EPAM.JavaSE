@@ -18,6 +18,7 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public boolean isEmpty() {
+        // TODO: 31.03.17
         return true;
     }
 
@@ -139,7 +140,7 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public void putAll(Map<? extends K, ? extends V> m) {
-
+        // TODO: 31.03.17
     }
 
     @Override
@@ -150,16 +151,19 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public Set<K> keySet() {
+        // TODO: 31.03.17
         return null;
     }
 
     @Override
     public Collection<V> values() {
+        // TODO: 31.03.17
         return null;
     }
 
     @Override
     public Set<Entry<K, V>> entrySet() {
+        // TODO: 31.03.17
         return null;
     }
 

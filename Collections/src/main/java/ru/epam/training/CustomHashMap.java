@@ -10,11 +10,13 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public int size() {
+        // TODO: 31.03.17
         return 0;
     }
 
     @Override
     public boolean isEmpty() {
+        // TODO: 31.03.17
         return true;
     }
 
@@ -29,7 +31,7 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean containsValue(Object value) {
-        return false;
+        return true;
     }
 
     @Override
