@@ -116,8 +116,4 @@ public class CustomHashMapTest {
 
         assertThat(m.size(), is(equalTo(9)));
     }
-
-    @Test
-    public void test() throws Exception {
-    }
 }

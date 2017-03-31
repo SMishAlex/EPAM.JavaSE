@@ -8,7 +8,7 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     private CustomEntry<K, V>[] buckets = new CustomEntry[DEFAULT_CAPACITY];
 
-    int treshold = (DEFAULT_CAPACITY * 2) / 3;
+    private int threshold = (DEFAULT_CAPACITY * 3) / 4;
 
     private int size = 0;
 
@@ -26,7 +26,7 @@ public class CustomHashMap<K, V> implements Map<K, V> {
         int newCapacity = oldCapacity << 1;
         buckets = new CustomEntry[newCapacity];
 
-        treshold = treshold << 1;
+        threshold = threshold << 1;
         size = 0;
 
         entries.forEach(x -> this.put(x.getKey(), x.getValue()));
@@ -84,7 +84,9 @@ public class CustomHashMap<K, V> implements Map<K, V> {
     private V putInBucket(int bucketNumber, K key, V value) {
         if (buckets[bucketNumber] == null) {
             buckets[bucketNumber] = new CustomEntry<>(key, value);
-            size++;
+            if (++size > threshold) {
+                resize();
+            }
             return null;
         }
         CustomEntry<K, V> currentEntry = buckets[bucketNumber];
@@ -98,7 +100,9 @@ public class CustomHashMap<K, V> implements Map<K, V> {
             return currentEntry.setValue(value);
         }
         currentEntry.next = new CustomEntry<>(key, value);
-        size++;
+        if (++size > threshold) {
+            resize();
+        }
         return null;
     }
 
