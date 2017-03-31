@@ -5,6 +5,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 
 import java.util.Map;
+import java.util.stream.IntStream;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -60,8 +61,8 @@ public class CustomHashMapTest {
 
     @Test
     public void testThatMapCanPutPairWithKeyThatAlreadyPresented() {
-        m.put(1,"1a");
-        m.put(1,"1b");
+        m.put(1, "1a");
+        m.put(1, "1b");
         assertThat(m.containsValue("1b"), is(true));
         assertThat(m.containsValue("1a"), is(false));
     }
@@ -77,10 +78,26 @@ public class CustomHashMapTest {
 
     @Test
     public void testContainsValueMethodWorksProperlyOn() {
+        IntStream.range(1, 10).forEach(
+                i -> m.put(i, String.valueOf(i))
+        );
+
+        IntStream.range(1, 10).forEach(
+                i -> assertThat(m.containsValue(String.valueOf(i)), is(true))
+        );
     }
 
     @Test
     public void testContainsValueMethodWorksProperlyOnNullInputValue() {
+        IntStream.range(1, 10).forEach(
+                i -> m.put(i, String.valueOf(i))
+        );
+
+        assertThat(m.containsValue(null), is(false));
+
+        m.put(100, null);
+
+        assertThat(m.containsValue(null), is(true));
     }
 
     @Test
