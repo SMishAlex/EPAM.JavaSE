@@ -30,7 +30,7 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     private boolean isKeyInBucket(CustomEntry<K, V> bucket, K key) {
         CustomEntry<K, V> currentEntry = bucket;
-        while (currentEntry!=null) {
+        while (currentEntry != null) {
             if (currentEntry.key.equals(key)) {
                 return true;
             }
@@ -93,12 +93,17 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public Set<K> keySet() {
-        return null;
+        HashSet<K> keys = new HashSet<>();
+        entrySet().forEach(x -> keys.add(x.getKey()));
+        return keys;
     }
 
     @Override
     public Collection<V> values() {
-        return null;
+        Set<Entry<K, V>> entries = entrySet();
+        ArrayList<V> values = new ArrayList<>(entries.size());
+        entries.forEach(x -> values.add(x.getValue()));
+        return values;
     }
 
     @Override
