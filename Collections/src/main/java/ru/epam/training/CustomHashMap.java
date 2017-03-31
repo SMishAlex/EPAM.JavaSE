@@ -41,7 +41,7 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean containsValue(Object value) {
-        return true;
+        return values().contains(value);
     }
 
     @Override
@@ -70,6 +70,11 @@ public class CustomHashMap<K, V> implements Map<K, V> {
                 return oldValue;
             }
             currentEntry = currentEntry.next();
+        }
+        if (currentEntry.key.equals(key)) {
+            V oldValue = currentEntry.value;
+            currentEntry.value = value;
+            return oldValue;
         }
         currentEntry.next = new CustomEntry<>(key, value);
         size++;
