@@ -18,20 +18,6 @@ public class CustomHashMap<K, V> implements Map<K, V> {
         return size;
     }
 
-    private void resize() {
-
-        Set<Entry<K, V>> entries = entrySet();
-
-        int oldCapacity = buckets.length;
-        int newCapacity = oldCapacity << 1;
-        buckets = new CustomEntry[newCapacity];
-
-        threshold = threshold << 1;
-        size = 0;
-
-        entries.forEach(x -> this.put(x.getKey(), x.getValue()));
-    }
-
     @Override
     public boolean isEmpty() {
         return size == 0;
@@ -41,22 +27,6 @@ public class CustomHashMap<K, V> implements Map<K, V> {
     public boolean containsKey(Object key) {
         Objects.requireNonNull(key);
         return keyEntry((K) key) != null;
-    }
-
-    private CustomEntry<K, V> keyEntry(K key) {
-        CustomEntry<K, V> bucket = buckets[hash(key)];
-        return keyInBucket(bucket, key);
-    }
-
-    private CustomEntry<K, V> keyInBucket(CustomEntry<K, V> bucket, K key) {
-        CustomEntry<K, V> currentEntry = bucket;
-        while (currentEntry != null) {
-            if (currentEntry.key.equals(key)) {
-                return currentEntry;
-            }
-            currentEntry = currentEntry.next();
-        }
-        return null;
     }
 
     @Override
@@ -75,35 +45,6 @@ public class CustomHashMap<K, V> implements Map<K, V> {
         Objects.requireNonNull(key);
         int bucketNumber = hash(key);
         return putInBucket(bucketNumber, key, value);
-    }
-
-    private int hash(Object key) {
-        return key.hashCode() % buckets.length;
-    }
-
-    private V putInBucket(int bucketNumber, K key, V value) {
-        if (buckets[bucketNumber] == null) {
-            buckets[bucketNumber] = new CustomEntry<>(key, value);
-            if (++size > threshold) {
-                resize();
-            }
-            return null;
-        }
-        CustomEntry<K, V> currentEntry = buckets[bucketNumber];
-        while (currentEntry.hasNext()) {
-            if (currentEntry.key.equals(key)) {
-                return currentEntry.setValue(value);
-            }
-            currentEntry = currentEntry.next();
-        }
-        if (currentEntry.key.equals(key)) {
-            return currentEntry.setValue(value);
-        }
-        currentEntry.next = new CustomEntry<>(key, value);
-        if (++size > threshold) {
-            resize();
-        }
-        return null;
     }
 
     @Override
@@ -169,6 +110,65 @@ public class CustomHashMap<K, V> implements Map<K, V> {
         return entries;
     }
 
+    private CustomEntry<K, V> keyEntry(K key) {
+        CustomEntry<K, V> bucket = buckets[hash(key)];
+        return keyInBucket(bucket, key);
+    }
+
+    private CustomEntry<K, V> keyInBucket(CustomEntry<K, V> bucket, K key) {
+        CustomEntry<K, V> currentEntry = bucket;
+        while (currentEntry != null) {
+            if (currentEntry.key.equals(key)) {
+                return currentEntry;
+            }
+            currentEntry = currentEntry.next();
+        }
+        return null;
+    }
+
+    private void resize() {
+
+        Set<Entry<K, V>> entries = entrySet();
+
+        int oldCapacity = buckets.length;
+        int newCapacity = oldCapacity << 1;
+        buckets = new CustomEntry[newCapacity];
+
+        threshold = threshold << 1;
+        size = 0;
+
+        entries.forEach(x -> this.put(x.getKey(), x.getValue()));
+    }
+
+    private V putInBucket(int bucketNumber, K key, V value) {
+        if (buckets[bucketNumber] == null) {
+            buckets[bucketNumber] = new CustomEntry<>(key, value);
+            if (++size > threshold) {
+                resize();
+            }
+            return null;
+        }
+        CustomEntry<K, V> currentEntry = buckets[bucketNumber];
+        while (currentEntry.hasNext()) {
+            if (currentEntry.key.equals(key)) {
+                return currentEntry.setValue(value);
+            }
+            currentEntry = currentEntry.next();
+        }
+        if (currentEntry.key.equals(key)) {
+            return currentEntry.setValue(value);
+        }
+        currentEntry.next = new CustomEntry<>(key, value);
+        if (++size > threshold) {
+            resize();
+        }
+        return null;
+    }
+
+    private int hash(Object key) {
+        return key.hashCode() % buckets.length;
+    }
+
     private class CustomEntry<K, V> implements Iterator<CustomEntry<K, V>>, Map.Entry<K, V> {
 
         private final K key;
@@ -204,5 +204,6 @@ public class CustomHashMap<K, V> implements Map<K, V> {
             this.value = value;
             return oldValue;
         }
+
     }
 }
