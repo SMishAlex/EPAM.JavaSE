@@ -130,6 +130,7 @@ public class CustomTreeMapTest {
         m.remove(1);
 
         assertFalse(m.containsKey(1));
+        assertTrue(m.containsKey(2));
     }
 
     @Test

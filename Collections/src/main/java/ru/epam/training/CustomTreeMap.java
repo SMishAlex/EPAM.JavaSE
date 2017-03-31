@@ -8,7 +8,7 @@ import java.util.Set;
 public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     private Node<K, V> root;
-    private V previosValue;
+    private V previousValue;
     private int size = 0;
 
     @Override
@@ -18,15 +18,25 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public boolean isEmpty() {
-        // TODO: 31.03.17
-        return true;
+
+        return size == 0;
+    }
+
+    private Node<K, V> next(Node<K, V> currentNode, K key) {
+        int compare = currentNode.key.compareTo(key);
+        if (compare < 0) {
+            return currentNode.right;
+        } else if (compare > 0) {
+            return currentNode.left;
+        } else
+            return currentNode;
     }
 
     @Override
+
     public boolean containsKey(Object key) {
         Objects.requireNonNull(key);
         if (root == null) return false;
-        root.key.compareTo((K) key);
         return find(root, (K) key) != null;
     }
 
@@ -51,12 +61,9 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
     private Node<K, V> nodeWithKey(K key) {
         Node<K, V> currentNode = root;
         while (currentNode != null) {
-            int compere = currentNode.key.compareTo(key);
-            if (compere < 0) {
-                currentNode = currentNode.right;
-            } else if (compere > 0) {
-                currentNode = currentNode.left;
-            } else {
+            Node<K, V> previousNode = currentNode;
+            currentNode = next(currentNode, key);
+            if (previousNode==currentNode){
                 return currentNode;
             }
         }
@@ -67,7 +74,7 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
     public V put(K key, V value) {
         Objects.requireNonNull(key);
         root = put(root, key, value);
-        return previosValue;
+        return previousValue;
     }
 
     private Node<K, V> put(Node<K, V> node, K key, V value) {
@@ -76,7 +83,7 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
             return new Node<>(key, value);
         }
         if (node.key.equals(key)) {
-            previosValue = node.value;
+            previousValue = node.value;
             node.value = value;
         } else if (node.key.compareTo(key) > 0) {
             node.left = put(node.left, key, value);
@@ -140,7 +147,7 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public void putAll(Map<? extends K, ? extends V> m) {
-        // TODO: 31.03.17
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -151,20 +158,17 @@ public class CustomTreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public Set<K> keySet() {
-        // TODO: 31.03.17
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Collection<V> values() {
-        // TODO: 31.03.17
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Set<Entry<K, V>> entrySet() {
-        // TODO: 31.03.17
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     private class Node<K extends Comparable<K>, V> {
