@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
@@ -102,6 +103,11 @@ public class CustomHashMapTest {
 
     @Test
     public void testThatMapCalculateItsSizeProperly() {
+        IntStream.range(1, 10).forEach(
+                i -> m.put(i, String.valueOf(i))
+        );
+
+        assertThat(m.size(), is(equalTo(9)));
     }
 
     @Test
