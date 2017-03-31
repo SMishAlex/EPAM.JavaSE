@@ -23,6 +23,7 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean containsKey(Object key) {
+        Objects.requireNonNull(key);
         CustomEntry<K, V> bucket = buckets[0];
         if (bucket != null) {
             return bucket.key.equals(key);

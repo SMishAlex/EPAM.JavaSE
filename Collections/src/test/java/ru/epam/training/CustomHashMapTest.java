@@ -68,7 +68,7 @@ public class CustomHashMapTest {
 
     @Test(expected = NullPointerException.class)
     public void testThatContainsKeyMethodThrowsExceptionOnNullKey() {
-
+        m.containsKey(null);
     }
 
     @Test
