@@ -57,7 +57,13 @@ public class CustomHashMapTest {
 
     @Test
     public void testThatMapHaveDynamicCapacity() {
+        IntStream.range(1, 320).forEach(
+                i -> m.put(i, String.valueOf(i))
+        );
 
+        IntStream.range(1, 320).forEach(
+                i -> assertThat(m.containsKey(i), is(true))
+        );
     }
 
     @Test
@@ -115,5 +121,21 @@ public class CustomHashMapTest {
         );
 
         assertThat(m.size(), is(equalTo(9)));
+    }
+
+    @Test
+    public void testThatWeCanRemoveEntryByKey() throws Exception {
+        IntStream.range(1, 10).forEach(
+                i -> m.put(i, String.valueOf(i))
+        );
+
+        m.remove(1);
+        m.remove(10);
+        m.remove(5);
+
+
+        assertThat(m.containsKey(1), is(false));
+        assertThat(m.containsKey(10), is(false));
+        assertThat(m.containsKey(5), is(false));
     }
 }
