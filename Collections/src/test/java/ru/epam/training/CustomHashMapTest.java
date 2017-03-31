@@ -24,7 +24,6 @@ public class CustomHashMapTest {
     public void testThatWeCanCreate() {
 
         assertThat(m, is(notNullValue()));
-
     }
 
     @Test
@@ -54,12 +53,17 @@ public class CustomHashMapTest {
         assertThat(m.containsValue(null), is(true));
     }
 
-    @Test(expected = OutOfMemoryError.class)
-    public void testThatMapHaveInfiniteCapacity() {
+    @Test
+    public void testThatMapHaveDynamicCapacity() {
+
     }
 
     @Test
     public void testThatMapCanPutPairWithKeyThatAlreadyPresented() {
+        m.put(1,"1a");
+        m.put(1,"1b");
+        assertThat(m.containsValue("1b"), is(true));
+        assertThat(m.containsValue("1a"), is(false));
     }
 
     @Test
@@ -79,13 +83,11 @@ public class CustomHashMapTest {
     public void testContainsValueMethodWorksProperlyOnNullInputValue() {
     }
 
-    @Test(expected = ClassCastException.class)
-    public void testValueContainsMethodThrowsExceptionOnWrongInputValueClass() {
-    }
-
     @Test
     public void testThatMapCalculateItsSizeProperly() {
     }
 
-
+    @Test
+    public void test() throws Exception {
+    }
 }
