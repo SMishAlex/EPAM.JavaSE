@@ -65,16 +65,12 @@ public class CustomHashMap<K, V> implements Map<K, V> {
         CustomEntry<K, V> currentEntry = buckets[bucketNumber];
         while (currentEntry.hasNext()) {
             if (currentEntry.key.equals(key)) {
-                V oldValue = currentEntry.value;
-                currentEntry.value = value;
-                return oldValue;
+                return currentEntry.setValue(value);
             }
             currentEntry = currentEntry.next();
         }
         if (currentEntry.key.equals(key)) {
-            V oldValue = currentEntry.value;
-            currentEntry.value = value;
-            return oldValue;
+            return currentEntry.setValue(value);
         }
         currentEntry.next = new CustomEntry<>(key, value);
         size++;
