@@ -8,12 +8,28 @@ public class CustomHashMap<K, V> implements Map<K, V> {
 
     private CustomEntry<K, V>[] buckets = new CustomEntry[DEFAULT_CAPACITY];
 
+    int treshold = (DEFAULT_CAPACITY * 2) / 3;
+
     private int size = 0;
 
     @Override
     public int size() {
 
         return size;
+    }
+
+    private void resize() {
+
+        Set<Entry<K, V>> entries = entrySet();
+
+        int oldCapacity = buckets.length;
+        int newCapacity = oldCapacity << 1;
+        buckets = new CustomEntry[newCapacity];
+
+        treshold = treshold << 1;
+        size = 0;
+
+        entries.forEach(x -> this.put(x.getKey(), x.getValue()));
     }
 
     @Override

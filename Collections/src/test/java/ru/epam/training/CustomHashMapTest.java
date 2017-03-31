@@ -69,7 +69,14 @@ public class CustomHashMapTest {
     }
 
     @Test
-    public void testThatMapCanContainsKeysWithSameHashCode() {
+    public void testThatMapCanContainsMoreThenOneEntryInOneBucket() {
+        IntStream.range(1, 32).forEach(
+                i -> m.put(i, String.valueOf(i))
+        );
+
+        IntStream.range(1, 32).forEach(
+                i -> assertThat(m.containsValue(String.valueOf(i)), is(true))
+        );
     }
 
     @Test(expected = NullPointerException.class)
